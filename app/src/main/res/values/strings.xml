@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EcoCycle</string>
+    <string name="senha">Senha</string>
+    <string name="e_mail">E-mail</string>
+    <string name="insira_as_suas_credenciais_de_login">Insira as suas credenciais de login!</string>
+    <string name="bem_vindo">Bem Vindo!</string>
+    <string name="digite_o_seu_e_mail">Digite o seu e-mail</string>
+    <string name="informe_a_sua_senha">Informe a sua senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="esqueci_minha_senha">Esqueci minha senha</string>
+</resources>
