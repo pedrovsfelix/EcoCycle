@@ -63,7 +63,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
   <tr>
   <td align="center">
       <a href="https://github.com/pedrovsfelix" title="Aluno">
-        <img src="" width="100px;" alt="Foto do Aluno"/><br>
+        <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/364542825_3383801875266169_4512836669268856911_n.jpg?ccb=11-4&oh=01_Q5AaIL38f716iEpHoM9GPD6FfqXrTtyP3kB_bf1IvB4z_DqK&oe=664511CC&_nc_sid=e6ed6c&_nc_cat=110" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
           <b>Pedro Félix</b>
         </sub>
@@ -95,7 +95,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
     </td>
             <td align="center">
       <a href="https://github.com/" title="Aluno">
-        <img src="" width="100px;" alt="Foto do Aluno"/><br>
+        <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/300645604_2822832641356706_71719791182500157_n.jpg?ccb=11-4&oh=01_Q5AaIJ7SGxVJGQTfAjjSY7ApgOqpSVAGz6eLMs2dXCdzKBs0&oe=6644E261&_nc_sid=e6ed6c&_nc_cat=110" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
           <b>Yghor</b>
         </sub>
