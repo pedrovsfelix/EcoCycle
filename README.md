@@ -79,7 +79,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
     </td>
         <td align="center">
       <a href="https://github.com/" title="Aluno">
-        <img src="https://web.whatsapp.com/5678be9a-c1f1-4a3f-a68b-30e98784f3a8" width="100px;" alt="Foto do Aluno"/><br>
+        <img src="https://i.ibb.co/WDSqvsd/Whats-App-Image-2024-05-05-at-17-31-13.jpg" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
           <b>Gustavo Santana</b>
         </sub>
