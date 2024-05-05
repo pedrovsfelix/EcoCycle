@@ -2,7 +2,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/pedrovsfelix/EcoCycle)
 <div style="display: flex; justify-content:center;">
-<img src="https://i.ibb.co/56SzPGj/Captura-de-tela-2024-05-05-144644.png" style="max-height: 430px;" alt="Spider-Man">
+  <img src="https://i.ibb.co/56SzPGj/Captura-de-tela-2024-05-05-144644.png" style="max-height: 430px;" alt="Spider-Man">
 </div>
 > Projeto utilizando técnicas kotlin para resolver uma questão social, implementando todas as práticas ministradas durante o laboratório.
 
