@@ -52,7 +52,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/" title="Instrutor">
+      <a href="[https://github.com/lucassampaioleite" title="Instrutor">
         <img src="https://avatars.githubusercontent.com/u/13689528?v=4" width="100px;" alt="Foto do Instrutor"/><br>
         <sub>
           <b>Lucas Sampaio</b>
