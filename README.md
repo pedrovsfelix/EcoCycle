@@ -79,7 +79,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
     </td>
         <td align="center">
       <a href="https://github.com/" title="Aluno">
-        <img src="" width="100px;" alt="Foto do Aluno"/><br>
+        <img src="blob:https://web.whatsapp.com/5678be9a-c1f1-4a3f-a68b-30e98784f3a8" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
           <b>Gustavo Santana</b>
         </sub>
@@ -87,7 +87,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
     </td>
         <td align="center">
       <a href="https://github.com/" title="Aluno">
-        <img src="" width="100px;" alt="Foto do Aluno"/><br>
+        <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/252463725_4939186009510503_78003848712404742_n.jpg?ccb=11-4&oh=01_Q5AaIL0l_9v7U87ebc9eDoSGWoCKf6LeytrLUOkGc4q1Egio&oe=663E82FA&_nc_sid=e6ed6c&_nc_cat=111" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
           <b>Carolina Souto</b>
         </sub>
