@@ -9,4 +9,7 @@
     <string name="entrar">Entrar</string>
     <string name="esqueci_minha_senha">Esqueci minha senha</string>
     <string name="criar_conta">Criar conta</string>
+    <string name="criar_sua_conta">Criar sua conta</string>
+    <string name="criar">Criar</string>
+    <string name="informe_as_suas_credenciais_de_login">Informe as suas credenciais de login.</string>
 </resources>

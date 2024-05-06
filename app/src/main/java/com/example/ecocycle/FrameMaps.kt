@@ -5,9 +5,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 
 class FrameMaps : AppCompatActivity() {
@@ -25,6 +27,16 @@ class FrameMaps : AppCompatActivity() {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
             addMarkers(googleMap)
+
+            googleMap.setOnMapLoadedCallback {
+                val bounds = LatLngBounds.builder()
+
+                places.forEach {
+                    bounds.include(it.latLng)
+                }
+
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 5))
+            }
         }
     }
 

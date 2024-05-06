@@ -5,7 +5,114 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".FormCadastro">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/cycle"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:cardCornerRadius="28dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/criar_sua_conta"
+                android:textColor="@color/primary_green"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="@string/informe_as_suas_credenciais_de_login" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="Nome"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Informe o seu nome"
+                android:inputType="text" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="@string/e_mail"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/digite_o_seu_e_mail"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:text="@string/senha"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/informe_a_sua_senha"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btnCreateCont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary_green"
+                android:fontFamily="sans-serif"
+                android:text="@string/criar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 
 
