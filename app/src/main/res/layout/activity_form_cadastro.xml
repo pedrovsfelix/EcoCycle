@@ -36,6 +36,18 @@
             android:orientation="vertical"
             android:padding="28dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                <ImageView
+                    android:id="@+id/btnReturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/baseline_arrow_back_24"
+                    />
+            </RelativeLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,9 +74,10 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Informe o seu nome"
+                android:hint="@string/informe_o_seu_nome"
                 android:inputType="text" />
 
             <View
@@ -79,6 +92,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/usermail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/digite_o_seu_e_mail"
@@ -92,13 +106,14 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/userpwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/informe_a_sua_senha"
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/btnCreateCont"
+                android:id="@+id/btnCadastro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primary_green"
