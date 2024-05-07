@@ -61,7 +61,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
     </td>
   </tr>
   <tr>
-  <td align="center">
+    <td align="center">
       <a href="https://github.com/pedrovsfelix" title="Aluno">
         <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/364542825_3383801875266169_4512836669268856911_n.jpg?ccb=11-4&oh=01_Q5AaIL38f716iEpHoM9GPD6FfqXrTtyP3kB_bf1IvB4z_DqK&oe=664511CC&_nc_sid=e6ed6c&_nc_cat=110" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
@@ -69,15 +69,15 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
         </sub>
       </a>
     </td>
-        <td align="center">
-      <a href="https://github.com/" title="Aluno">
-        <img src="" width="100px;" alt="Foto do Aluno"/><br>
+    <td align="center">
+      <a href="https://github.com/Polymatheia-BR" title="Aluno">
+        <img src="https://media.licdn.com/dms/image/D4D03AQGhIYx_7nTehg/profile-displayphoto-shrink_800_800/0/1663553580125?e=1720656000&v=beta&t=Ga3f87r8JXZb3VNQHnA9xU9ex7yx37RHl5IAFGnJreg" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
-          <b>Vitor</b>
+          <b>Victor Ferreira</b>
         </sub>
       </a>
     </td>
-        <td align="center">
+    <td align="center">
       <a href="https://github.com/" title="Aluno">
         <img src="https://i.ibb.co/WDSqvsd/Whats-App-Image-2024-05-05-at-17-31-13.jpg" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
@@ -85,7 +85,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
         </sub>
       </a>
     </td>
-        <td align="center">
+    <td align="center">
       <a href="https://github.com/" title="Aluno">
         <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/252463725_4939186009510503_78003848712404742_n.jpg?ccb=11-4&oh=01_Q5AaIL0l_9v7U87ebc9eDoSGWoCKf6LeytrLUOkGc4q1Egio&oe=663E82FA&_nc_sid=e6ed6c&_nc_cat=111" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
@@ -93,7 +93,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
         </sub>
       </a>
     </td>
-            <td align="center">
+    <td align="center">
       <a href="https://github.com/" title="Aluno">
         <img src="https://media-for1-1.cdn.whatsapp.net/v/t61.24694-24/300645604_2822832641356706_71719791182500157_n.jpg?ccb=11-4&oh=01_Q5AaIJ7SGxVJGQTfAjjSY7ApgOqpSVAGz6eLMs2dXCdzKBs0&oe=6644E261&_nc_sid=e6ed6c&_nc_cat=110" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
@@ -102,5 +102,4 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
       </a>
     </td>
   </tr>
-  
 </table>
