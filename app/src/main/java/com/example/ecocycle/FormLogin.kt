@@ -22,7 +22,6 @@ class FormLogin : AppCompatActivity() {
         }
 
         val btnCadastro = findViewById<Button>(R.id.buttonCadastro)
-
         btnCadastro.setOnClickListener() {
             openCadastro()
         }
