@@ -3,6 +3,7 @@
     <style name="Base.Theme.EcoCycle" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">#2E7D32</item>
     </style>
 
     <style name="Theme.EcoCycle" parent="Base.Theme.EcoCycle" />
