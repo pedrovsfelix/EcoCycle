@@ -54,6 +54,7 @@ class FormCadastro : AppCompatActivity() {
             // Usuário criado com sucesso
             Toast.makeText(this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show()
             limparCampos()
+            retornar()
         } else {
             // Ocorreu um erro ao criar o usuário
             Toast.makeText(this, "Erro ao criar o usuário.", Toast.LENGTH_SHORT).show()

@@ -64,20 +64,22 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="-20dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="28dp">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
                 android:orientation="vertical"
                 android:padding="28dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="end">
+                    android:gravity="end"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/buttonCadastro"
@@ -95,7 +97,6 @@
                 </RelativeLayout>
 
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,6 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:alpha="0.7"
+                    android:textColor="@color/secondary_black"
                     android:text="@string/insira_as_suas_credenciais_de_login" />
 
                 <View
@@ -119,28 +121,32 @@
                     android:layout_height="wrap_content"
                     android:alpha="0.7"
                     android:text="@string/e_mail"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/secondary_black"/>
 
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/digite_o_seu_e_mail"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:alpha="0.7"
                     android:text="@string/senha"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/secondary_black"/>
 
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/informe_a_sua_senha"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"/>
 
                 <Button
                     android:id="@+id/btnLogin"
@@ -151,7 +157,7 @@
                     android:text="@string/entrar"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    />
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:layout_width="match_parent"
