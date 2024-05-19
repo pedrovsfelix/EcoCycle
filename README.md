@@ -10,9 +10,13 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [ ]  Iteração entre as activitys;
-- [ ]  Conexão com o banco de dados SQLite;
+- [x]  Criação de formulário de cadastro;
+- [x]  Criação de formulário de login;
+- [x]  Iteração entre as activitys;
+- [x]  Conexão com o banco de dados SQLite;
 - [ ]  Classificação dos pins de acordo com a categoria;
+- [ ]  Criação da tela com formulário de endereço/cadastro;
+- [ ]  Conversão do endereço para lat/lon;
 
 
 ## 💻 Pré-requisitos
@@ -81,7 +85,7 @@ Agradeço imensamente ao instrutor Lucas Sampaio por todo ensiamento teórico/pr
       <a href="https://github.com/" title="Aluno">
         <img src="https://i.ibb.co/WDSqvsd/Whats-App-Image-2024-05-05-at-17-31-13.jpg" width="100px;" alt="Foto do Aluno"/><br>
         <sub>
-          <b>Gustavo Santana</b>
+          <b>Gustavo Santos</b>
         </sub>
       </a>
     </td>
