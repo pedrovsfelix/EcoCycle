@@ -7,9 +7,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-
 class FormLogin : AppCompatActivity() {
     private lateinit var dbHelper: UserDatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_login)
@@ -22,10 +22,9 @@ class FormLogin : AppCompatActivity() {
         }
 
         val btnCadastro = findViewById<Button>(R.id.buttonCadastro)
-        btnCadastro.setOnClickListener() {
+        btnCadastro.setOnClickListener {
             openCadastro()
         }
-
     }
 
     private fun fazerLogin() {
@@ -34,13 +33,16 @@ class FormLogin : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email).text.toString()
         val password = findViewById<EditText>(R.id.password).text.toString()
 
-        val cursor = db.rawQuery("SELECT * FROM ${UserDatabaseHelper.TABLE_NAME} WHERE ${UserDatabaseHelper.COLUMN_EMAIL} = ? AND ${UserDatabaseHelper.COLUMN_PASSWORD} = ?", arrayOf(email, password))
+        val cursor = db.rawQuery(
+            "SELECT * FROM ${UserDatabaseHelper.TABLE_NAME} WHERE ${UserDatabaseHelper.COLUMN_EMAIL} = ? AND ${UserDatabaseHelper.COLUMN_PASSWORD} = ?",
+            arrayOf(email, password)
+        )
 
         if (cursor.moveToFirst()) {
             // Login bem-sucedido
             Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
-            // Redirecionar para a próxima atividade
-            val intent = Intent(this, FrameMaps::class.java)
+            // Redirecionar para a tela de cadastro do Local
+            val intent = Intent(this, FormCadastroLocal::class.java)
             startActivity(intent)
             finish() // Encerrar esta atividade para que o usuário não possa voltar para a tela de login pressionando o botão "voltar"
         } else {

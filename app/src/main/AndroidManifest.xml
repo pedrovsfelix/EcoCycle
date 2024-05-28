@@ -35,9 +35,13 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".FormCadastroLocal" />
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${GOOGLEMAPS_APIKEY}" />
+            android:value="AIzaSyCxVOi-BF375BPNzWLdBwc9aE03T_HiVaA" />
     </application>
 
 </manifest>

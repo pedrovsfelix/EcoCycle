@@ -14,4 +14,14 @@
     <string name="informe_as_suas_credenciais_de_login">Informe as suas credenciais de login.</string>
     <string name="informe_o_seu_nome">Informe o seu nome</string>
     <string name="ola">Ola</string>
+    <string name="Cadastro_de_Cooperativa">Cadastro de Cooperativa</string>
+    <string name="Nome">Nome</string>
+    <string name="Digite_o_nome_da_Cooperativa">Digite o nome da Cooperativa</string>
+    <string name="Digite_o_endereco_da_Cooperativa">Digite o endereço da Cooperativa</string>
+    <string name="Endereco">Endereço</string>
+    <string name="tipo_de_material_reciclavel">Tipo de material reciclavél</string>
+    <string name="salvar">Salvar</string>
+
+
+
 </resources>
