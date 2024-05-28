@@ -33,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/Digite_o_nome_da_Cooperativa"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:autofillHints="@string/Digite_o_nome_da_Cooperativa"/>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/Digite_o_endereco_da_Cooperativa"
-            android:inputType="textPostalAddress" />
+            android:inputType="textPostalAddress"
+            android:autofillHints="@string/Digite_o_endereco_da_Cooperativa"/>
 
         <TextView
             android:layout_width="wrap_content"

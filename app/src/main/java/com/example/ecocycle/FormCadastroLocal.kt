@@ -58,7 +58,7 @@ class FormCadastroLocal : AppCompatActivity() {
     //private fun retornar() {
         //val intent = Intent(this, FrameMaps::class.java)
         //startActivity(intent)
-    }
+
 }
 
 
