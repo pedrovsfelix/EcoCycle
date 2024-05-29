@@ -1,10 +1,12 @@
 package com.example.ecocycle
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +17,7 @@ class FormCadastroLocal : AppCompatActivity() {
     private lateinit var editTextEndereco: EditText
     private lateinit var spinnerMaterial: Spinner
     private lateinit var buttonSalvar: Button
-    private lateinit var buttonBack: Button
+    private lateinit var buttonBack: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +37,7 @@ class FormCadastroLocal : AppCompatActivity() {
 
         // Configura o clique no botão de voltar
         buttonBack.setOnClickListener {
-            // Volta para a atividade FrameMaps
-            val intent = Intent(this, FrameMaps::class.java)
-            startActivity(intent)
+            setResult(Activity.RESULT_OK)
             finish() // Finaliza esta atividade para evitar a pilha de atividades acumulada
         }
 
@@ -62,6 +62,5 @@ class FormCadastroLocal : AppCompatActivity() {
             editTextEndereco.text.clear()
             spinnerMaterial.setSelection(0)
         }
-
     }
 }
