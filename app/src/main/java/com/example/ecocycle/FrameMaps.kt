@@ -1,6 +1,8 @@
 package com.example.ecocycle
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -29,7 +31,8 @@ class FrameMaps : AppCompatActivity() {
         Place("Gerecicle Gestão ambiental e Reciclagem", LatLng(-8.0735805,-34.9319457), "R. Realeza, 2270 a - São José, Recife - PE, 50090-690", "Papelão", 4.3f),
         Place("Kaper Reciclagem", LatLng(-8.0735805,-34.9319457), "R. Imperial, 2049 - São José, Recife - PE, 50080-150", "Plástico", 4.0f),
         Place("Ecoóleo - Coleta De Óleo Usado", LatLng(-8.0710794,-34.9615374), "R. Dr. Aniceto Ribeiro Varejão, 15-A - Torrões, Recife - PE, 50761-080", "Oléo", 3.8f)
-        )
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +51,13 @@ class FrameMaps : AppCompatActivity() {
 
                 googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 100))
             }
+        }
+
+        // Configura o botão para redirecionar para o FormCadastroLocal
+        val buttonToCadastroLocal = findViewById<Button>(R.id.buttonToCadastroLocal)
+        buttonToCadastroLocal.setOnClickListener {
+            val intent = Intent(this, FormCadastroLocal::class.java)
+            startActivity(intent)
         }
     }
 

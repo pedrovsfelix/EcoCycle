@@ -15,6 +15,7 @@ class FormCadastroLocal : AppCompatActivity() {
     private lateinit var editTextEndereco: EditText
     private lateinit var spinnerMaterial: Spinner
     private lateinit var buttonSalvar: Button
+    private lateinit var buttonBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +25,21 @@ class FormCadastroLocal : AppCompatActivity() {
         editTextEndereco = findViewById(R.id.editTextEndereco)
         spinnerMaterial = findViewById(R.id.spinnerMaterial)
         buttonSalvar = findViewById(R.id.buttonCadastroLocal)
+        buttonBack = findViewById(R.id.buttonBack)
 
         // Configurar Spinner
         val materiais = arrayOf("Vidro", "Plástico", "Metais", "Papelão", "Diversos")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, materiais)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerMaterial.adapter = adapter
+
+        // Configura o clique no botão de voltar
+        buttonBack.setOnClickListener {
+            // Volta para a atividade FrameMaps
+            val intent = Intent(this, FrameMaps::class.java)
+            startActivity(intent)
+            finish() // Finaliza esta atividade para evitar a pilha de atividades acumulada
+        }
 
         buttonSalvar.setOnClickListener {
             salvarLocal()
@@ -54,12 +64,4 @@ class FormCadastroLocal : AppCompatActivity() {
         }
 
     }
-
-    //private fun retornar() {
-        //val intent = Intent(this, FrameMaps::class.java)
-        //startActivity(intent)
-
 }
-
-
-

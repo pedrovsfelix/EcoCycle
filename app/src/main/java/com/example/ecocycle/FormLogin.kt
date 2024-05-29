@@ -42,7 +42,7 @@ class FormLogin : AppCompatActivity() {
             // Login bem-sucedido
             Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
             // Redirecionar para a tela de cadastro do Local
-            val intent = Intent(this, FormCadastroLocal::class.java)
+            val intent = Intent(this, FrameMaps::class.java)
             startActivity(intent)
             finish() // Encerrar esta atividade para que o usuário não possa voltar para a tela de login pressionando o botão "voltar"
         } else {

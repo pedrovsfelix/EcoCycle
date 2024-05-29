@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/Digite_o_nome_da_Cooperativa"
             android:inputType="textPersonName"
-            android:autofillHints="@string/Digite_o_nome_da_Cooperativa"/>
+            android:autofillHints="PersonName"/>
 
 
         <TextView
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/Digite_o_endereco_da_Cooperativa"
             android:inputType="textPostalAddress"
-            android:autofillHints="@string/Digite_o_endereco_da_Cooperativa"/>
+            android:autofillHints="PostalAddress"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,5 +75,13 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/primary_green"
             android:textColor="@android:color/white" />
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/baseline_arrow_back_24" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
