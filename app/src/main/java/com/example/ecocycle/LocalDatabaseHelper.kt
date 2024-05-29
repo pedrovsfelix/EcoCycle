@@ -2,6 +2,7 @@ package com.example.ecocycle
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -10,14 +11,16 @@ class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
     companion object {
         private const val DATABASE_VERSION = 1
         private const val DATABASE_NAME = "local.db"
-        const val TABLE_NAME = "COOPERATIVAS"
-        const val COLUMN_NAME = "NAME"
-        const val COLUMN_ENDERECO = "ENDERECO"
-        const val COLUMN_TIPO = "TIPO"
+        const val TABLE_NAME = "places"
+        const val COLUMN_NAME = "name"
+        const val COLUMN_LAT = "lat"
+        const val COLUMN_LNG = "lng"
+        const val COLUMN_ADDRESS = "address"
+        const val COLUMN_MATERIAL = "material"
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val createTable = "CREATE TABLE $TABLE_NAME ($COLUMN_ENDERECO TEXT PRIMARY KEY, $COLUMN_NAME TEXT, $COLUMN_TIPO TEXT)"
+        val createTable = "CREATE TABLE $TABLE_NAME (id INTEGER,$COLUMN_NAME TEXT PRIMARY KEY, $COLUMN_LAT TEXT, $COLUMN_LNG TEXT, $COLUMN_ADDRESS TEXT, $COLUMN_MATERIAL TEXT)"
         db.execSQL(createTable)
     }
 
@@ -26,15 +29,23 @@ class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         onCreate(db)
     }
 
-    fun insertLocal(name: String, endereco: String, tipo: String): Boolean {
+    fun insertLocal(name: String, lat: String, lng: String, address: String, material: String): Boolean {
         val db = writableDatabase
         val contentValues = ContentValues().apply {
             put(COLUMN_NAME, name)
-            put(COLUMN_ENDERECO, endereco)
-            put(COLUMN_TIPO, tipo)
+            put(COLUMN_LAT, lat)
+            put(COLUMN_LNG, lng)
+            put(COLUMN_ADDRESS, address)
+            put(COLUMN_MATERIAL, material)
         }
         val result = db.insert(TABLE_NAME, null, contentValues)
         db.close()
         return result != -1L
+    }
+
+    fun getAllPlaces(): Cursor {
+        val db = readableDatabase
+        val places = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        return places
     }
 }
