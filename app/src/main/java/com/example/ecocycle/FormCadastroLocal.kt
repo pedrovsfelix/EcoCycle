@@ -1,6 +1,7 @@
 package com.example.ecocycle
 
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -12,7 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class FormCadastroLocal : AppCompatActivity() {
-
+    private lateinit var dbHelper: LocalDatabaseHelper
     private lateinit var editTextNome: EditText
     private lateinit var editTextEndereco: EditText
     private lateinit var spinnerMaterial: Spinner
@@ -22,12 +23,13 @@ class FormCadastroLocal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_cadastro_local)
-
+        dbHelper = LocalDatabaseHelper (this)
         editTextNome = findViewById(R.id.editTextNome)
         editTextEndereco = findViewById(R.id.editTextEndereco)
         spinnerMaterial = findViewById(R.id.spinnerMaterial)
         buttonSalvar = findViewById(R.id.buttonCadastroLocal)
         buttonBack = findViewById(R.id.buttonBack)
+
 
         // Configurar Spinner
         val materiais = arrayOf("Vidro", "Plástico", "Metais", "Papelão", "Diversos")
@@ -47,20 +49,29 @@ class FormCadastroLocal : AppCompatActivity() {
     }
 
     private fun salvarLocal() {
-        val nome = editTextNome.text.toString()
-        val endereco = editTextEndereco.text.toString()
-        //val material = spinnerMaterial.selectedItem.toString()
+        val db = dbHelper.writableDatabase
 
-        if (nome.isEmpty() || endereco.isEmpty()) {
-            Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
-        } else {
-            // Salvar os dados no banco de dados ou em outro local
-            Toast.makeText(this, "Local salvo com sucesso!", Toast.LENGTH_SHORT).show()
+        val nome = findViewById<EditText>(R.id.editTextNome).text.toString()
+        val endereco = findViewById<EditText>(R.id.editTextEndereco).text.toString()
+        val tipo = findViewById<EditText>(R.id.tipo).text.toString()
 
-            // Limpar os campos após salvar
+        val values = ContentValues().apply {
+            put("name", nome)
+            put("endereco", endereco)
+            put("tipo", tipo)
+
+            }
+
+        val newRowId = db.insert(LocalDatabaseHelper.TABLE_NAME, null, values)
+        if (newRowId != -1L) {
+            // Usuário criado com sucesso
+            Toast.makeText(this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show()
             editTextNome.text.clear()
             editTextEndereco.text.clear()
-            spinnerMaterial.setSelection(0)
+
+        } else {
+            // Ocorreu um erro ao criar o usuário
+            Toast.makeText(this, "Erro ao criar o usuário.", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -17,7 +17,7 @@
         android:id="@+id/buttonToCadastroLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastro Local"
+        android:text="Nova Cooperativa"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/primary_green"

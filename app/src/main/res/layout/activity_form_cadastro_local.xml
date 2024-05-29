@@ -54,6 +54,7 @@
             android:autofillHints="PostalAddress"/>
 
         <TextView
+            android:id="@+id/tipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tipo_de_material_reciclavel"
