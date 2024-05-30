@@ -2,6 +2,7 @@ package com.example.ecocycle
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,14 +15,19 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class FrameMaps : AppCompatActivity() {
 
+    private lateinit var db: LocalDatabaseHelper
+    private lateinit var places: ArrayList<Place>
+    private lateinit var mapFragment: SupportMapFragment
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frame_maps)
 
-        val db = LocalDatabaseHelper(this)
-        val places = db.getAllPlaces()
+        db = LocalDatabaseHelper(this)
+        places = db.getAllPlaces()
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
+        mapFragment = supportFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
             if (places.isNotEmpty()) {
                 addMarkers(googleMap, places)
@@ -45,6 +51,12 @@ class FrameMaps : AppCompatActivity() {
         }
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        mapFragment.getMapAsync { googleMap ->
+            addMarkers(googleMap, places)
+        }
+    }
     private fun addMarkers(googleMap: GoogleMap, places: ArrayList<Place>) {
         places.forEach { place ->
             val color = when (place.category) {
