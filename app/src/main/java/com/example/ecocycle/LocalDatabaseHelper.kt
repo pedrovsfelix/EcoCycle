@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.google.android.gms.maps.model.LatLng
 
 class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -20,7 +21,7 @@ class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val createTable = "CREATE TABLE $TABLE_NAME (id INTEGER,$COLUMN_NAME TEXT PRIMARY KEY, $COLUMN_LAT TEXT, $COLUMN_LNG TEXT, $COLUMN_ADDRESS TEXT, $COLUMN_MATERIAL TEXT)"
+        val createTable = "CREATE TABLE $TABLE_NAME (id INTEGER PRIMARY KEY AUTOINCREMENT,$COLUMN_NAME TEXT, $COLUMN_LAT TEXT, $COLUMN_LNG TEXT, $COLUMN_ADDRESS TEXT, $COLUMN_MATERIAL TEXT)"
         db.execSQL(createTable)
     }
 
@@ -43,9 +44,23 @@ class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         return result != -1L
     }
 
-    fun getAllPlaces(): Cursor {
+    fun getAllPlaces(): ArrayList<Place> {
         val db = readableDatabase
-        val places = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+        val places = arrayListOf<Place>()
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                places.add(Place(
+                    cursor.getString(1),
+                    LatLng(cursor.getString(2).toDouble(),cursor.getString(3).toDouble()),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    5.0f
+                ))
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
         return places
     }
 }
