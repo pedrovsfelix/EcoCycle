@@ -2,45 +2,31 @@ package com.example.ecocycle
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 
 class FrameMaps : AppCompatActivity() {
 
     private lateinit var db: LocalDatabaseHelper
-    private lateinit var places: ArrayList<Place>
     private lateinit var mapFragment: SupportMapFragment
-
+    private lateinit var googleMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frame_maps)
 
         db = LocalDatabaseHelper(this)
-        places = db.getAllPlaces()
 
         mapFragment = supportFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync { googleMap ->
-            if (places.isNotEmpty()) {
-                addMarkers(googleMap, places)
-                googleMap.setOnMapLoadedCallback {
-                    val bounds = LatLngBounds.builder()
-
-                    places.forEach {
-                        bounds.include(it.latLng)
-                    }
-
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 100))
-                }
-            }
+            this.googleMap = googleMap
+            loadMarkers()
         }
 
         // Configura o botão para redirecionar para o FormCadastroLocal
@@ -53,10 +39,24 @@ class FrameMaps : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        mapFragment.getMapAsync { googleMap ->
+        loadMarkers()
+    }
+
+    private fun loadMarkers() {
+        val places = db.getAllPlaces()
+        googleMap.clear() // Limpa todos os marcadores antes de adicionar os novos
+        if (places.isNotEmpty()) {
             addMarkers(googleMap, places)
+            val bounds = LatLngBounds.builder()
+
+            places.forEach {
+                bounds.include(it.latLng)
+            }
+
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds.build(), 100))
         }
     }
+
     private fun addMarkers(googleMap: GoogleMap, places: ArrayList<Place>) {
         places.forEach { place ->
             val color = when (place.category) {
@@ -81,11 +81,3 @@ class FrameMaps : AppCompatActivity() {
         }
     }
 }
-
-data class Place(
-    val name: String,
-    val latLng: LatLng,
-    val address: String,
-    val category: String,
-    val rating: Float
-)
