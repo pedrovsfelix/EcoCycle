@@ -1,25 +1,37 @@
 package com.example.ecocycle
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import java.util.Locale
 
 class FrameMaps : AppCompatActivity() {
 
     private lateinit var db: LocalDatabaseHelper
     private lateinit var mapFragment: SupportMapFragment
     private lateinit var googleMap: GoogleMap
+    private lateinit var autoCompleteFragment: AutocompleteSupportFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frame_maps)
+
+        //Iniciarlizar API Places (Google)
+        Places.initializeWithNewPlacesApiEnabled(this, "", Locale("pt"))
+        val placesClient = Places.createClient(this)
 
         db = LocalDatabaseHelper(this)
 
@@ -28,6 +40,20 @@ class FrameMaps : AppCompatActivity() {
             this.googleMap = googleMap
             loadMarkers()
         }
+
+        autoCompleteFragment = supportFragmentManager.findFragmentById(R.id.autocomplete_fragment) as AutocompleteSupportFragment
+        autoCompleteFragment.setHint("Pressione para pesquisar")
+        autoCompleteFragment.view?.setBackgroundColor(Color.WHITE)
+        autoCompleteFragment.setPlaceFields(listOf(com.google.android.libraries.places.api.model.Place.Field.ID, com.google.android.libraries.places.api.model.Place.Field.NAME, com.google.android.libraries.places.api.model.Place.Field.LAT_LNG))
+        autoCompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
+            override fun onError(status: Status) {
+                Toast.makeText(this@FrameMaps, "Erro: $status", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onPlaceSelected(place: com.google.android.libraries.places.api.model.Place) {
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(place.latLng))
+            }
+        })
 
         // Configura o botão para redirecionar para o FormCadastroLocal
         val buttonToCadastroLocal = findViewById<Button>(R.id.buttonToCadastroLocal)

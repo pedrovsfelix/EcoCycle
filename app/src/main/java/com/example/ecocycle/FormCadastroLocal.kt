@@ -32,10 +32,6 @@ class FormCadastroLocal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_cadastro_local)
 
-        //Colocar api do google maps
-        Places.initializeWithNewPlacesApiEnabled(this, "", Locale("pt"))
-        val placesClient = Places.createClient(this)
-
         editTextNome = findViewById(R.id.editTextNome)
         spinnerMaterial = findViewById(R.id.spinnerMaterial)
         buttonSalvar = findViewById(R.id.buttonCadastroLocal)
