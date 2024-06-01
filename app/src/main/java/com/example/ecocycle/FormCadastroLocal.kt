@@ -1,8 +1,6 @@
 package com.example.ecocycle
 
 import android.app.Activity
-import android.content.Intent
-import android.location.Geocoder
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -11,24 +9,51 @@ import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.common.api.Status
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import java.util.Locale
 
 class FormCadastroLocal : AppCompatActivity() {
 
     private lateinit var editTextNome: EditText
-    private lateinit var editTextEndereco: EditText
     private lateinit var spinnerMaterial: Spinner
     private lateinit var buttonSalvar: Button
     private lateinit var buttonBack: ImageButton
+    private lateinit var autoCompleteFragment: AutocompleteSupportFragment
+
+    private lateinit var address: String
+    private lateinit var LatLngAddress: LatLng
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_cadastro_local)
 
+        //Colocar api do google maps
+        Places.initializeWithNewPlacesApiEnabled(this, "", Locale("pt"))
+        val placesClient = Places.createClient(this)
+
         editTextNome = findViewById(R.id.editTextNome)
-        editTextEndereco = findViewById(R.id.editTextEndereco)
         spinnerMaterial = findViewById(R.id.spinnerMaterial)
         buttonSalvar = findViewById(R.id.buttonCadastroLocal)
         buttonBack = findViewById(R.id.buttonBack)
+
+        autoCompleteFragment = supportFragmentManager.findFragmentById(R.id.autocomplete_fragment) as AutocompleteSupportFragment
+        autoCompleteFragment.setHint("Pressione para pesquisar")
+        autoCompleteFragment.setPlaceFields(listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+        autoCompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
+            override fun onError(status: Status) {
+                Toast.makeText(this@FormCadastroLocal, "Erro: $status", Toast.LENGTH_LONG).show()
+            }
+
+            override fun onPlaceSelected(place: Place) {
+                address = place.name
+                LatLngAddress = place.latLng
+            }
+        })
 
         // Configurar Spinner
         val materiais = arrayOf("Vidro", "Plástico", "Metais", "Papelão", "Diversos")
@@ -48,8 +73,8 @@ class FormCadastroLocal : AppCompatActivity() {
     }
 
     private fun salvarLocal() {
+        val helper = LocalDatabaseHelper(this)
         val name = findViewById<EditText>(R.id.editTextNome).text.toString()
-        val address = findViewById<EditText>(R.id.editTextEndereco).text.toString()
         val material = spinnerMaterial.selectedItem.toString()
 
         if (name.isEmpty() || address.isEmpty()) {
@@ -57,25 +82,14 @@ class FormCadastroLocal : AppCompatActivity() {
             return
         }
 
-        //API para transformar endereço em LatLng
-        val geoCoder = Geocoder(this)
-        val helper = LocalDatabaseHelper(this)
-        val coordinates = geoCoder.getFromLocationName(address,1)
-
-        //Verifica se a API achou algum endereço e seleciona o primeiro endereço retornado
-        if (!coordinates.isNullOrEmpty()) {
-            val lat = coordinates[0].latitude.toString()
-            val lng = coordinates[0].longitude.toString()
-            helper.insertLocal(name, lat, lng, address, material)
-            Toast.makeText(this, "Local salvo com sucesso!", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "Endereço não encontrado", Toast.LENGTH_SHORT).show()
-            return
-        }
+        val lat = LatLngAddress.latitude.toString()
+        val lng = LatLngAddress.longitude.toString()
+        helper.insertLocal(name, lat, lng, address, material)
+        Toast.makeText(this, "Local salvo com sucesso!", Toast.LENGTH_SHORT).show()
 
         // Limpar os campos após salvar
         editTextNome.text.clear()
-        editTextEndereco.text.clear()
+        autoCompleteFragment.setText("")
         spinnerMaterial.setSelection(0)
     }
 }

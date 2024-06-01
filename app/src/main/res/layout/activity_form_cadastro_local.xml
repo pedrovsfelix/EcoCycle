@@ -36,7 +36,6 @@
             android:inputType="textPersonName"
             android:autofillHints="PersonName"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,14 +43,12 @@
             android:textSize="16sp"
             android:paddingTop="16dp"
             android:paddingBottom="8dp" />
-
-        <EditText
-            android:id="@+id/editTextEndereco"
+        
+        <fragment android:id="@+id/autocomplete_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/Digite_o_endereco_da_Cooperativa"
-            android:inputType="textPostalAddress"
-            android:autofillHints="PostalAddress"/>
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            />
 
         <TextView
             android:id="@+id/tipo"
