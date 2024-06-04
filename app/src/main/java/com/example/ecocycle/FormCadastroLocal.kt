@@ -2,6 +2,7 @@ package com.example.ecocycle
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -9,13 +10,12 @@ import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ecocycle.util.LocalDatabaseHelper
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
-import java.util.Locale
 
 class FormCadastroLocal : AppCompatActivity() {
 
@@ -39,14 +39,16 @@ class FormCadastroLocal : AppCompatActivity() {
 
         autoCompleteFragment = supportFragmentManager.findFragmentById(R.id.autocomplete_fragment) as AutocompleteSupportFragment
         autoCompleteFragment.setHint("Pressione para pesquisar")
-        autoCompleteFragment.setPlaceFields(listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+
+        //Especificar abaixo quais dados retonar da API PLACES
+        autoCompleteFragment.setPlaceFields(listOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG, Place.Field.ADDRESS))
         autoCompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onError(status: Status) {
-                Toast.makeText(this@FormCadastroLocal, "Erro: $status", Toast.LENGTH_LONG).show()
+                Log.e(null, "$status")
             }
 
             override fun onPlaceSelected(place: Place) {
-                address = place.name
+                address = place.address
                 LatLngAddress = place.latLng
             }
         })

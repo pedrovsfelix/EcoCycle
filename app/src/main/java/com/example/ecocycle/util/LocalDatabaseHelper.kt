@@ -1,9 +1,10 @@
-package com.example.ecocycle
+package com.example.ecocycle.util
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.ecocycle.Place
 import com.google.android.gms.maps.model.LatLng
 
 class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -50,13 +51,15 @@ class LocalDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
         if (cursor.moveToFirst()) {
             do {
-                places.add(Place(
+                places.add(
+                    Place(
                     cursor.getString(1),
                     LatLng(cursor.getString(2).toDouble(), cursor.getString(3).toDouble()),
                     cursor.getString(4),
                     cursor.getString(5),
                     5.0f
-                ))
+                )
+                )
             } while (cursor.moveToNext())
         }
         cursor.close()

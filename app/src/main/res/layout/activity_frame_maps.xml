@@ -11,17 +11,7 @@
         android:id="@+id/map_fragment"
         class="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <Button
-        android:id="@+id/buttonToCadastroLocal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nova Cooperativa"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/primary_green"
-        android:textColor="@android:color/white"/>
+        android:layout_height="match_parent" />
 
     <fragment
         android:id="@+id/autocomplete_fragment"
@@ -29,5 +19,34 @@
         android:layout_width="match_parent"
         android:layout_marginTop="16dp"
         android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="bottom"
+        android:showDividers="middle"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonToCadastroLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_green"
+            android:text="@string/nova_cooperativa"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/plus_icon" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/buttonToListarCooperativa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/listar_cooperativa"
+            app:icon="@drawable/list_icon" />
+    </LinearLayout>
 
 </FrameLayout>

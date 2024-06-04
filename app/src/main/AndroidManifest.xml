@@ -17,6 +17,9 @@
         android:theme="@style/Theme.EcoCycle"
         tools:targetApi="31">
         <activity
+            android:name=".CooperativaList"
+            android:exported="false" />
+        <activity
             android:name=".FrameMaps"
             android:exported="false" />
         <activity
@@ -34,9 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FormCadastroLocal" />
 
-        <activity
-            android:name=".FormCadastroLocal" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCxVOi-BF375BPNzWLdBwc9aE03T_HiVaA" />

@@ -21,7 +21,10 @@
     <string name="Endereco">Endereço</string>
     <string name="tipo_de_material_reciclavel">Tipo de material reciclavél</string>
     <string name="salvar">Salvar</string>
-
-
+    <string name="nova_cooperativa">Nova Cooperativa</string>
+    <string name="listar_cooperativa">Listar Cooperativas</string>
+    <string name="local_icon">Icone</string>
+    <string name="local_name">Nome do Local</string>
+    <string name="local_address">Endereço do Local</string>
 
 </resources>

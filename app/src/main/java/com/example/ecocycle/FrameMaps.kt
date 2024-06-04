@@ -3,10 +3,11 @@ package com.example.ecocycle
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.ecocycle.util.LocalDatabaseHelper
 import com.google.android.gms.common.api.Status
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -47,7 +48,7 @@ class FrameMaps : AppCompatActivity() {
         autoCompleteFragment.setPlaceFields(listOf(com.google.android.libraries.places.api.model.Place.Field.ID, com.google.android.libraries.places.api.model.Place.Field.NAME, com.google.android.libraries.places.api.model.Place.Field.LAT_LNG))
         autoCompleteFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
             override fun onError(status: Status) {
-                Toast.makeText(this@FrameMaps, "Erro: $status", Toast.LENGTH_LONG).show()
+                Log.e(null, "$status")
             }
 
             override fun onPlaceSelected(place: com.google.android.libraries.places.api.model.Place) {
@@ -59,6 +60,10 @@ class FrameMaps : AppCompatActivity() {
         val buttonToCadastroLocal = findViewById<Button>(R.id.buttonToCadastroLocal)
         buttonToCadastroLocal.setOnClickListener {
             val intent = Intent(this, FormCadastroLocal::class.java)
+            startActivity(intent)
+        }
+        findViewById<Button>(R.id.buttonToListarCooperativa).setOnClickListener {
+            val intent = Intent(this, CooperativaList::class.java)
             startActivity(intent)
         }
     }

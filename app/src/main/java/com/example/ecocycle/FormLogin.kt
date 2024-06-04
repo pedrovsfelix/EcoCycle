@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ecocycle.util.UserDatabaseHelper
 
 class FormLogin : AppCompatActivity() {
     private lateinit var dbHelper: UserDatabaseHelper
@@ -16,14 +17,12 @@ class FormLogin : AppCompatActivity() {
 
         dbHelper = UserDatabaseHelper(this)
 
-        val buttonLogin = findViewById<Button>(R.id.btnLogin)
-        buttonLogin.setOnClickListener {
+        findViewById<Button>(R.id.btnLogin).setOnClickListener {
             fazerLogin()
         }
 
-        val btnCadastro = findViewById<Button>(R.id.buttonCadastro)
-        btnCadastro.setOnClickListener {
-            openCadastro()
+        findViewById<Button>(R.id.buttonCadastro).setOnClickListener {
+            startActivity(Intent(this, FormCadastro::class.java))
         }
     }
 
@@ -51,10 +50,5 @@ class FormLogin : AppCompatActivity() {
         }
 
         cursor.close()
-    }
-
-    private fun openCadastro() {
-        val intent = Intent(this, FormCadastro::class.java)
-        startActivity(intent)
     }
 }

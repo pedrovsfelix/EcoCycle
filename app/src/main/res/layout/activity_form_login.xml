@@ -184,27 +184,27 @@
                     android:padding="18dp">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/google" />
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/google_logo_svg" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent" />
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/facebook" />
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/facebook_logo_svg" />
 
                     <View
                         android:layout_width="20dp"
                         android:layout_height="match_parent" />
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/twitter" />
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/twitter_logo_svg" />
                 </LinearLayout>
 
             </LinearLayout>

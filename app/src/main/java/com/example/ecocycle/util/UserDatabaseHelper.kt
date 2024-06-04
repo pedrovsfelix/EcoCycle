@@ -1,4 +1,4 @@
-package com.example.ecocycle
+package com.example.ecocycle.util
 
 import android.content.ContentValues
 import android.content.Context
