@@ -30,8 +30,8 @@ class FrameMaps : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_frame_maps)
 
-        //Iniciarlizar API Places (Google)
-        Places.initializeWithNewPlacesApiEnabled(this, "", Locale("pt"))
+        //Inicializar API Places (Google)
+        Places.initializeWithNewPlacesApiEnabled(this, BuildConfig.MAPS_API_KEY, Locale("pt"))
         val placesClient = Places.createClient(this)
 
         db = LocalDatabaseHelper(this)
